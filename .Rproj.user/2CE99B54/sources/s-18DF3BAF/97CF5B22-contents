@@ -1,0 +1,18 @@
+list0 = build_rmse_mat(mtcars)
+X = list0[[2]]
+varExpl = var_expl(X); # dim(varExpl)
+
+# now plot-ly the var explained %s
+plot01 = ggplot(data = varExpl, aes(component, compt.var)) + geom_col() + ggtitle("% variance explained by PCA compts")
+fig01 = ggplotly(plot01)
+fig01  # show in Var Explained tab
+
+# plot-ly cumul var explained %
+plot02 = ggplot(data = varExpl, aes(component, cumul.var)) + 
+  geom_col() + 
+  ggtitle("% Cumul variance explained by PCA compts")
+fig02 = ggplotly(plot02)
+fig02  # show in Var Explained Tab
+
+# display biplot in plotly. show in PCA scores tab
+build_display_biplot(X)
