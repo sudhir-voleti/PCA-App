@@ -33,18 +33,18 @@ shinyUI(fluidPage(
                      
             ),
             tabPanel("Variance Explained", value=1,
-                    plotlyOutput("var_exp"),
-                    plotlyOutput("cum_var_exp") 
+                     plotly::plotlyOutput("var_exp"),
+                     plotly::plotlyOutput("cum_var_exp") 
                      
             ),
             tabPanel("PCA Scores",value=1,
                      DT::dataTableOutput("scores_dt"),
-                     plotlyOutput("bi_plot")
+                     plotly::plotlyOutput("bi_plot")
             ),
             
             tabPanel("PCA Loadings",value=1,
                     DT::dataTableOutput("loadings_dt"),
-                    plotlyOutput("loading_hm")
+                    plotly::plotlyOutput("loading_hm")
             ),
             id = "tabselected"
         )

@@ -46,7 +46,7 @@ server <- function(input, output,session) {
     loadings[, 1:input$k]
   })
   
-  output$loading_hm <- renderPlotly({
+  output$loading_hm <- plotly::renderPlotly({
     df1 = list0()[[2]]
     build_pca_loadings_heatmap(df1, k=input$k)
   })
@@ -57,12 +57,12 @@ server <- function(input, output,session) {
     scores[, 1:input$k]
   })
   
-  output$bi_plot <- renderPlotly({
+  output$bi_plot <- plotly::renderPlotly({
     X = list0()[[2]]
     build_display_biplot(X)
   })
   #--- Variance exp Tab---#
-  output$var_exp <- renderPlotly({
+  output$var_exp <- plotly::renderPlotly({
     X = list0()[[2]]
     varExpl = var_expl(X); # dim(varExpl)
     # now plot-ly the var explained %s
@@ -71,7 +71,7 @@ server <- function(input, output,session) {
     fig01  # show in Var Explained tab
   })
   
-  output$cum_var_exp <- renderPlotly({
+  output$cum_var_exp <- plotly::renderPlotly({
     X = list0()[[2]]
     varExpl = var_expl(X); # dim(varExpl)
     plot02 = ggplot(data = varExpl, aes(component, cumul.var)) + 
