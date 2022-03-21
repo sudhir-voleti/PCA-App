@@ -1,4 +1,4 @@
-
+source('https://raw.githubusercontent.com/sudhir-voleti/PCA-App/main/dependencies.R')
 #---------Staring Server code--------#
 
 server <- function(input, output,session) {
