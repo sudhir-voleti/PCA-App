@@ -31,7 +31,7 @@ server <- function(input, output,session) {
   
   list0 <- reactive({
     suppressWarnings({ 
-      df_data <- df_data()%>%drop_na()
+      df_data <- df_data()%>% tidyr::drop_na()
       list0 = build_rmse_mat(df_data()) 
       return(list0)
     })
